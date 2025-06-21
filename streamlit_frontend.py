@@ -69,7 +69,7 @@ with col1:
     # Logo centralizado abaixo do uploader
     st.markdown(
         f'<div style="text-align: center; margin: 1.5rem 0;">'
-        f'<img src="data:image/png;base64,{get_base64("images/logo.png")}" width="240">'
+        f'<img src="data:image/png;base64,{get_base64("images/logo.jpg")}" width="240">'
         f'</div>',
         unsafe_allow_html=True
     )
@@ -81,7 +81,7 @@ with col1:
 
 with col2:
     # Seção de dimensões (atualmente comentada)
-    # st.subheader("Dimensões da Obra")
+    st.subheader("Dimensões da Obra")
     # width_cm = st.number_input(
     #     "Largura (cm)",
     #     min_value=1,
