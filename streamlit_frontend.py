@@ -81,7 +81,7 @@ with col1:
 
 with col2:
     # Seção de dimensões (atualmente comentada)
-    st.subheader("Clique abaixo para avaliar a obra")
+    st.subheader("Avalie a obra:")
     # width_cm = st.number_input(
     #     "Largura (cm)",
     #     min_value=1,
