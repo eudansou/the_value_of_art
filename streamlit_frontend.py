@@ -79,6 +79,26 @@ with col1:
         image = Image.open(uploaded_file)
         st.image(image, caption="Obra carregada", use_container_width=True)
 
+with col2:
+    # Seção de dimensões (atualmente comentada)
+    st.subheader("Clique abaixo para avaliar a obra")
+    # width_cm = st.number_input(
+    #     "Largura (cm)",
+    #     min_value=1,
+    #     max_value=1000,
+    #     value=50,
+    #     step=1
+    # )
+    # height_cm = st.number_input(
+    #     "Altura (cm)",
+    #     min_value=1,
+    #     max_value=1000,
+    #     value=60,
+    #     step=1
+    # )
+    # width_in = width_cm * 0.393701  # Conversão para inches
+    # height_in = height_cm * 0.393701
+
     # Botão para estimar
     if st.button("Estimar Valor", use_container_width=True):
         if uploaded_file is not None:
@@ -99,47 +119,6 @@ with col1:
                 st.error(f"Erro ao conectar com a API: {str(e)}")
         else:
             st.warning("Por favor, carregue uma imagem primeiro.")
-
-#with col2:
-    # Seção de dimensões (atualmente comentada)
-    #st.subheader("Dimensões da Obra")
-    # width_cm = st.number_input(
-    #     "Largura (cm)",
-    #     min_value=1,
-    #     max_value=1000,
-    #     value=50,
-    #     step=1
-    # )
-    # height_cm = st.number_input(
-    #     "Altura (cm)",
-    #     min_value=1,
-    #     max_value=1000,
-    #     value=60,
-    #     step=1
-    # )
-    # width_in = width_cm * 0.393701  # Conversão para inches
-    # height_in = height_cm * 0.393701
-
-    # # Botão para estimar
-    # if st.button("Estimar Valor", use_container_width=True):
-    #     if uploaded_file is not None:
-    #         try:
-    #             # Chamada para a API
-    #             files = {"file": uploaded_file.getvalue()}
-    #             response = requests.post(
-    #                 "https://the-value-of-art-790412683890.europe-west1.run.app/predict",
-    #                 files=files
-    #             )
-
-    #             if response.status_code == 200:
-    #                 result = response.json()
-    #                 st.success(f"Valor estimado: **${result['predicted_price']:,.2f}**")
-    #             else:
-    #                 st.error(f"Erro na API: {response.status_code}. Tente novamente.")
-    #         except Exception as e:
-    #             st.error(f"Erro ao conectar com a API: {str(e)}")
-    #     else:
-    #         st.warning("Por favor, carregue uma imagem primeiro.")
 
 # Rodapé
 st.markdown("---")
