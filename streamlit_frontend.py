@@ -50,9 +50,9 @@ set_background('images/background.jpg')
 # Conteúdo do aplicativo
 st.title("🎨 Art Value Predictor")
 st.markdown("""
-    **Estime o valor de mercado de obras de arte.**
-
-    Faça upload da imagem para receber uma estimativa!
+    **Estimate the market value of works of art.**
+    
+    Upload an image to get an estimate!
 """)
 st.markdown("---")
 
@@ -61,7 +61,7 @@ col1, col2 = st.columns([2, 1])
 with col1:
     # Área de upload
     uploaded_file = st.file_uploader(
-        "Carregue a imagem da obra de arte",
+        "Upload artwork image.",
         type=["jpg", "jpeg", "png"],
         help="Formatos suportados: JPG, JPEG, PNG"
     )
@@ -77,11 +77,11 @@ with col1:
     # Exibe a imagem carregada
     if uploaded_file is not None:
         image = Image.open(uploaded_file)
-        st.image(image, caption="Obra carregada", use_container_width=True)
+        st.image(image, caption="Artwork loaded", use_container_width=True)
 
 with col2:
     # Seção de dimensões (atualmente comentada)
-    st.subheader("    Avalie a obra:")
+    st.subheader("    Evaluate the work:")
     # width_cm = st.number_input(
     #     "Largura (cm)",
     #     min_value=1,
@@ -100,7 +100,7 @@ with col2:
     # height_in = height_cm * 0.393701
 
     # Botão para estimar
-    if st.button("Estimar Valor", use_container_width=True):
+    if st.button("Estimate Value", use_container_width=True):
         if uploaded_file is not None:
             try:
                 # Chamada para a API
@@ -112,13 +112,13 @@ with col2:
 
                 if response.status_code == 200:
                     result = response.json()
-                    st.success(f"Valor estimado: **${result['predicted_price']:,.2f}**")
+                    st.success(f"Estimated value: **${result['predicted_price']:,.2f}**")
                 else:
-                    st.error(f"Erro na API: {response.status_code}. Tente novamente.")
+                    st.error(f"API error: {response.status_code}. Tente novamente.")
             except Exception as e:
-                st.error(f"Erro ao conectar com a API: {str(e)}")
+                st.error(f"Failed to connect to API: {str(e)}")
         else:
-            st.warning("Por favor, carregue uma imagem primeiro.")
+            st.warning("Please, load an image first.")
 
 # Rodapé
 st.markdown("---")
