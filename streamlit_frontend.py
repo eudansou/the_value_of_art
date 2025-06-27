@@ -52,7 +52,7 @@ st.title("🎨 Art Value Predictor")
 st.markdown("""
     **Estimate the market value of works of art.**
     
-    Upload an image to get an estimate!
+    Upload an image to receive an estimate!
 """)
 st.markdown("---")
 
